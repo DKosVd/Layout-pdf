@@ -20,6 +20,7 @@ import positionsAtMonthLarge from './components/positionsAtMonthLarge.js';
 import summary from './page/summary.js';
 import positionsAtMonthSmall from './components/positionsAtMonthSmall.js';
 import resultWithNumberAndImage from './components/resultWithNumberAndImage.js';
+import imageWithText from './components/imageWIthText.js';
 // Add another page
 // Draw a rectangle with text
 
@@ -41,9 +42,10 @@ function main() {
 
     // summary(false);
 
-    resultWithNumberAndImage();
+    // resultWithNumberAndImage();
 
-    
+    imageWithText(972, 190);
+
     doc.end();
 }
 
