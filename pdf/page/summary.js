@@ -9,7 +9,7 @@ function summary(isLarge) {
     addTitleToPage('Резюме за март');
     isLarge ? positionsAtMonthLarge() : positionsAtMonthSmall();
     addLine({x: 40, y: 490}, {w: 1347, h: 490});
-    addList({x: 80, y: 550}, {w: 740, h: 40});
+    addList({x: 80, y: 550}, {w: 740, h: 40}, "Выполненные задачи", 'image');
 }
 
 export default summary;

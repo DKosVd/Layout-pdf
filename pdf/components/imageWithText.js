@@ -7,9 +7,10 @@ import addText from "../elements/addText.js";
 //Y 148
 
 //2 row
-function imageWithText(startX, startY) {
-        let newY = startY;
-        let newString = 0;
+function imageWithText(position) {
+    const { startX, startY} = position;
+    let newY = startY;
+    let newString = 0;
 
     for(let i = 0; i < 9; i++) {
         //Check row 

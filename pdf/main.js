@@ -20,7 +20,8 @@ import positionsAtMonthLarge from './components/positionsAtMonthLarge.js';
 import summary from './page/summary.js';
 import positionsAtMonthSmall from './components/positionsAtMonthSmall.js';
 import resultWithNumberAndImage from './components/resultWithNumberAndImage.js';
-import imageWithText from './components/imageWIthText.js';
+import imageWithText from './components/imageWithText.js';
+import plan from './page/plan.js';
 // Add another page
 // Draw a rectangle with text
 
@@ -29,22 +30,23 @@ import imageWithText from './components/imageWIthText.js';
 
 function main() {
 
-    // first();
-    // doc.addPage();
-    // graphic();
-    // doc.addPage();
-    // title('Главные результаты марта')
-    // doc.addPage();
-    // bonusPage();
-    // doc.addPage();
+    first();
+    doc.addPage();
+    graphic();
+    doc.addPage();
+    title('Главные результаты марта')
+    doc.addPage();
+    bonusPage();
+    doc.addPage();
     // addList({x: 78, y: 615}, {w: 720, h: 40});
     // rectWithBorder();
 
-    // summary(false);
-
+    summary(false);
+    doc.addPage();
+    plan();
+    
     // resultWithNumberAndImage();
 
-    imageWithText(972, 190);
 
     doc.end();
 }
