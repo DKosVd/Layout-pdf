@@ -15,7 +15,6 @@ import graphic from './page/graphic.js';
 import first from './page/first.js'
 import title from './page/title.js'
 import addList from './elements/addList.js';
-import rectWithBorder from './elements/rectWithBorder.js';
 import positionsAtMonthLarge from './components/positionsAtMonthLarge.js';
 import summary from './page/summary.js';
 import positionsAtMonthSmall from './components/positionsAtMonthSmall.js';
@@ -39,7 +38,6 @@ function main() {
     bonusPage();
     doc.addPage();
     // addList({x: 78, y: 615}, {w: 720, h: 40});
-    // rectWithBorder();
 
     summary(false);
     doc.addPage();

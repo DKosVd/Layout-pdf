@@ -11,7 +11,7 @@ function imageWithText(position) {
     const { startX, startY} = position;
     let newY = startY;
     let newString = 0;
-
+    
     for(let i = 0; i < 9; i++) {
         //Check row 
         if(newString === 2) {
