@@ -22,6 +22,8 @@ import resultWithNumberAndImage from './components/resultWithNumberAndImage.js';
 import imageWithText from './components/imageWithText.js';
 import plan from './page/plan.js';
 import addTable from './elements/addTable.js';
+import table from './page/table.js';
+import briefSummary from './page/briefSummary.js';
 // Add another page
 // Draw a rectangle with text
 
@@ -43,9 +45,10 @@ function main() {
     // summary(false);
     // doc.addPage();
     // plan();
-    
+    briefSummary();
     // resultWithNumberAndImage();
-    addTable({x: 40, y: 40});
+    // table();
+    
 
     doc.end();
 }
