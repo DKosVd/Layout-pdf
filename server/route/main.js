@@ -11,6 +11,7 @@ router.get('/', function(req, res) {
 
 router.post('/pdf', function(req, res) {
     console.log(Date.now())
+    main();
     res.send(req.body)
 })
 
