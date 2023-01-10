@@ -3,6 +3,8 @@ import options from "../options/options.js";
 import addText from "./addText.js";
 //Не все элементы умещаются на графике
 
+const HEIGHT_OF_GRAPHIC = 563;
+const WIDTH_OF_GRAPHIC = 1360;
 
 let data = null;
 
@@ -20,11 +22,11 @@ function addGraphic(dataValue) {
 
 
 function addColumn(maxValue, nH) {
-    const margin = Math.floor(30 / options.RATIOWIDTH);
-    const height = Math.floor(563 / options.RATIOHEIGHT);
+    const margin = Math.floor(20 / options.RATIOWIDTH);
+    const height = Math.floor(HEIGHT_OF_GRAPHIC / options.RATIOHEIGHT);
     const stepH = height / maxValue;
     //(Full width OX/OY - startPoint.x - ( margin * count of element) )  / count of element
-    const widthElem = ( ( (1360 - startPoint.x - (30 * (nH + 1)) )) / (nH+ 1)) / options.RATIOWIDTH;
+    const widthElem = ( ( (WIDTH_OF_GRAPHIC - startPoint.x - (30 * (nH + 1)) )) / (nH+ 1)) / options.RATIOWIDTH;
 
     const Y = Math.floor(startPoint.y / options.RATIOHEIGHT);
     const x = Math.floor(startPoint.x / options.RATIOWIDTH);
@@ -35,25 +37,24 @@ function addColumn(maxValue, nH) {
         const y = (Y - (data[i].value * stepH));
         widthStart.width = i === 0 ? widthStart.width : widthStart.width + widthElem + margin; 
         doc.rect(widthStart.width, y, widthElem, Y - y)
-           .fillAndStroke('#3E2E88;', '#fffffff')
+           .fillAndStroke(options.MAIN_COLOR, '#fffffff')
            .fill('#ffffff').stroke()
-        addDateOX(data[i].date, {x: (widthElem / 2) + widthStart.width - widthElem / 8 ,y: 750}, {w: widthElem, h:18});
-        addTextIntoColumn(data[i].value, {x: ( ( widthElem - margin) / nH) + widthStart.width, y: (Y - (Y - y) / 2)}, {w: widthElem, h: 18});
+        addDateOX(data[i].date, {x: widthStart.width, y: 750}, {w: widthElem, h: 18});
+        addTextIntoColumn(data[i].value, {x: widthStart.width, y: (Y - (Y - y) / 2)}, {w: widthElem, h: 18});
     }
 }
 
 function addDateOX(month, position, sizes) {
     const {x, y} = position;
     const {w, h} = sizes;
-    addText(month, {x: x  * options.RATIOWIDTH, y: y}, {w: w *  options.RATIOWIDTH, h: h* options.RATIOHEIGHT}, 18,  '000000')
+    addText(month, {x: x  * options.RATIOWIDTH, y: y}, {w: w *  options.RATIOWIDTH, h: h* options.RATIOHEIGHT}, 18,  '#000000', 'center')
 }
 
 function addTextIntoColumn(text, position, sizes) {
     const {x, y} = position;
     const {w, h} = sizes;
-    addText(text, {x: x * options.RATIOWIDTH, y: y * options.RATIOHEIGHT}, {w: w * options.RATIOWIDTH, h: h * options.RATIOHEIGHT}, 24, 'ffffff');
-    addText(`посетите${correctEnding(text)}`, {x: x * options.RATIOWIDTH, y: (y + 5) * options.RATIOHEIGHT}, {w: w * options.RATIOWIDTH, h: h * options.RATIOHEIGHT}, 16, 'ffffff');
-    // addText();
+    addText(text, {x: x * options.RATIOWIDTH, y: y * options.RATIOHEIGHT}, {w: w * options.RATIOWIDTH, h: h * options.RATIOHEIGHT}, 24, '#ffffff', 'center');
+    addText(`посетите${correctEnding(text)}`, {x: x * options.RATIOWIDTH, y: (y + 5) * options.RATIOHEIGHT}, {w: w * options.RATIOWIDTH, h: h * options.RATIOHEIGHT}, 16, '#ffffff', 'center');
 }
 
 function correctEnding(number, count) {
@@ -73,8 +74,7 @@ function correctEnding(number, count) {
 function addNumberOY(maxValue, n) {
 
     const number = Math.round(maxValue / n);
-    //563 высота графика
-    const step = Math.floor(563 / n);
+    const step = Math.floor(HEIGHT_OF_GRAPHIC / n);
     const Y = startPoint.y;
 
     doc.fillColor('#101010');
@@ -90,7 +90,7 @@ function addNumberOY(maxValue, n) {
         doc.lineCap('butt')
             .strokeColor('#D5CCFE')
             .moveTo(startPoint.x / options.RATIOWIDTH, y)
-            .lineTo(Math.floor(1360 / options.RATIOWIDTH), y)  
+            .lineTo(Math.floor(WIDTH_OF_GRAPHIC / options.RATIOWIDTH), y)  
             .stroke();
     }
 }
@@ -104,13 +104,13 @@ function drawSystemCoord() {
     doc.lineCap('butt')
        .strokeColor('#D5CCFE')
        .moveTo(OX, OY)
-       .lineTo(Math.floor(1360 / options.RATIOWIDTH), OY)  
+       .lineTo(Math.floor(WIDTH_OF_GRAPHIC / options.RATIOWIDTH), OY)  
        .stroke();
     //OY
     doc.lineCap('butt')
        .strokeColor('#D5CCFE')
        .moveTo(OX, OY)
-       .lineTo(OX, Math.floor( 140 / options.RATIOHEIGHT))  
+       .lineTo(OX, Math.floor( (startPoint.y - HEIGHT_OF_GRAPHIC - options.DEFAULT_MARGIN) / options.RATIOHEIGHT))  
        .stroke();
 }
 

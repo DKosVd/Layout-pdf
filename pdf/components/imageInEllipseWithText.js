@@ -14,8 +14,8 @@ function imageInEllipseWithText(position, sizes, isTitleInRect) {
     const {w, h} = sizes;
     
     isTitleInRect ? 
-        textOnRect("3 МЕСЯЦА", {x: x + (w / 2) - w * 0.35, y: y + 10}, {w: w / 1.4, h: 80}, 30, '3E2E88'):
-        addText("100.000₽", {x: x + (w / 2) - w * 0.3, y: y}, {w: w / 1.5, h: 40}, 40, '3E2E88');
+        textOnRect("3 МЕСЯЦА", {x: x + (w / 2) - w * 0.35, y: y + 10}, {w: w / 1.4, h: 80}, 30):
+        addText("100.000₽", {x: x + (w / 2) - w * 0.3, y: y}, {w: w / 1.5, h: 40}, 40);
 
     imageInCirlce(position, sizes);    
     addText("Ваш платёж", {x: x + (w / 2) - w * 0.16, y: y + h - 20}, {w: w / 2, h: 40}, 15);

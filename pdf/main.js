@@ -32,22 +32,24 @@ import briefSummary from './page/briefSummary.js';
 
 function main() {
 
-    // first();
-    // doc.addPage();
-    // graphic();
-    // doc.addPage();
-    // title('ГЛАВНЫЕ РЕЗУЛЬТАТЫ МАРТА')
-    // doc.addPage();
-    // bonusPage();
-    // doc.addPage();
-    // addList({x: 78, y: 615}, {w: 720, h: 40});
+    first();
+    doc.addPage();
+    graphic();
+    doc.addPage();
+    title('О ТРАФИКЕ НА ГРАФИКЕ')
+    doc.addPage();
+    bonusPage();
+    doc.addPage();
+    addList({x: 78, y: 615}, {w: 720, h: 40});
 
-    // summary(false);
-    // doc.addPage();
-    // plan();
+    summary(false);
+    doc.addPage();
+    plan();
+    doc.addPage();
     briefSummary();
-    // resultWithNumberAndImage();
-    // table();
+    doc.addPage();
+    table();
+
     
 
     doc.end();

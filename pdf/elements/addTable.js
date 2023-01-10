@@ -31,13 +31,13 @@ function getFontSizeForColumn(header) {
 }
 
 function getColorForRow(idx, header) {
-    if(header) return '#3E2E88';
-    return idx % 2 === 0 ? '#ffffff' : '#F7F5FF';
+    if(header) return options.MAIN_COLOR;
+    return idx % 2 === 0 ? '#ffffff' : options.LIGHT_MAIN_COLOR;
 }
 
 function getColorForTextRow(header) {
-    if(header) return 'ffffff';
-    return '000000'
+    if(header) return '#ffffff';
+    return '#000000'
 }
 
 function getRadiusForRow(idx, first, last) {

@@ -1,20 +1,32 @@
-import imageInCirlce from "../components/imageInCircle.js";
-import textInEllipse from "../components/textInEllipse.js";
+import addLine from "../elements/addLine.js";
 import addText from "../elements/addText.js";
+import options from "../options/options.js";
 
+const BIGFONTSIZE = 200;
+const MIDDLEFONTSIZE = 170;
+const SMALLFONTSIZE = 80;
 
-//If write text to center we need change start position
-//Start position it's center of shape
 function briefSummary() {
-    textInEllipse({x: 200, y: 230},
-        {width: 1020, height: 415, color: '#ffffff', colorBorder: '#B2A5EE'}, 
-        {width: 1200, height: 415, align: 'center', text: 'Дед мороз и снегурочка на дом', fontSize: 50, colorText: '3E2E88'}
-       );
-    imageInCirlce({x: 70, y: 150}, {w: 300, h: 260});
-    textInEllipse({x: 1160, y: 310},
-        {width: 170, height: 130, color: '#FF7D1D', colorBorder: '#FF7D1D'}, 
-        {width: 170, height: 130, colorText: 'ffffff', fontSize: 40, align: 'center', text: 'NEW'})
-    addText('Проработали, создали и опубликовали новых страниц в прошлом месяце', {x: 370, y: 650}, {w: 700, h: 90}, 25, '000000', 'center');
+    twoResult();
+}
+
+
+function oneResult() {
+    addText('+80%', {x: options.DEFAULT_MARGIN, y: 200}, {w: 1440 - options.DEFAULT_MARGIN, h: 90}, 50, 'ff7d1d', 'center');
+    addText('4 234', {x: options.DEFAULT_MARGIN, y: 350}, {w: 1440 - options.DEFAULT_MARGIN, h: 250}, BIGFONTSIZE,  options.MAIN_COLOR, 'center');
+    addText(`Проработали, создали и опубликовали новых страниц в прошлом месяце`, {x: options.DEFAULT_MARGIN, y: 600}, {w: 1440 - options.DEFAULT_MARGIN, h: 400}, 30, '000000', 'center');
+}
+
+function twoResult() {
+    addText('+80%', {x: options.DEFAULT_MARGIN, y: 300}, {w: (1440 - options.DEFAULT_MARGIN) / 2, h: 90}, 40, options.SECONDARY_COLOR, 'center');
+    addText('4 234', {x: options.DEFAULT_MARGIN, y: 350}, {w: (1440 - options.DEFAULT_MARGIN) / 2, h: 250}, MIDDLEFONTSIZE,  options.MAIN_COLOR, 'center');
+    addText(`Проработали, создали и опубликовали новых страниц в прошлом месяце`, {x: options.DEFAULT_MARGIN, y: 600}, {w: (1440 - options.DEFAULT_MARGIN) / 2, h: 400}, 24, '#000000', 'center');
+
+    addLine({x: (1440 + options.DEFAULT_MARGIN) / 2, y: 40}, {w: (1440 + options.DEFAULT_MARGIN) / 2, h: 860});
+
+    addText('+80%', {x: (1440 - options.DEFAULT_MARGIN) / 2 + options.DEFAULT_MARGIN, y: 300}, {w: (1440 - options.DEFAULT_MARGIN) / 2, h: 90}, 40, options.SECONDARY_COLOR, 'center');
+    addText('4 234', {x: (1440 - options.DEFAULT_MARGIN) / 2 + options.DEFAULT_MARGIN, y: 350}, {w: (1440 - options.DEFAULT_MARGIN) / 2, h: 250}, MIDDLEFONTSIZE,  options.MAIN_COLOR, 'center');
+    addText(`Проработали, создали и опубликовали новых страниц в прошлом месяце`, {x: (1440 - options.DEFAULT_MARGIN) / 2 + options.DEFAULT_MARGIN, y: 600}, {w: (1440 - options.DEFAULT_MARGIN) / 2, h: 400}, 24, '#000000', 'center');
 }
 
 export default briefSummary;

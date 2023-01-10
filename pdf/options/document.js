@@ -1,6 +1,6 @@
 import PDFDocument from 'pdfkit';
 import fs from 'fs';
-import {resolve} from 'path';
+import getFont from './fonts.js';
 
 
 // Create a document 254 200
@@ -10,6 +10,6 @@ const doc = new PDFDocument({size: [254, 200], pdfVersion: '1.7'});
 // See below for browser usage
 doc.pipe(fs.createWriteStream('output.pdf', 'utf-8'));
 
-doc.font(resolve('./pdf/fonts/Montserrat/static/Montserrat-Black.ttf'))
+doc.font(getFont('semiLight'));
 
 export default doc;

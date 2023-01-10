@@ -5,7 +5,7 @@ import {resolve} from 'path';
 function addImage(image, position, sizes) {
     const { x, y } = position;
     const { w, h } = sizes;
-    doc.image(resolve(`pdf/images/${image}`), 
+    doc.image(resolve(`images/${image}`), 
                 Math.floor(x / options.RATIOWIDTH), 
                 Math.floor(y / options.RATIOHEIGHT), 
                 {width: Math.floor(w / options.RATIOWIDTH), height: Math.floor(h / options.RATIOHEIGHT)})

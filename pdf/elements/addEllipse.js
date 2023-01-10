@@ -1,7 +1,7 @@
 import doc from "../options/document.js"
 import options from "../options/options.js";
 
-function addEllipse(position, sizes, color = '#E8EBFA', colorBorder = '#ffffff') {
+function addEllipse(position, sizes, color = options.LIGHT_MAIN_COLOR, colorBorder = '#ffffff') {
     //Отсчет в данном случае идет с середины фигуры, поэтому нужно определить место для элементов исходя из R 
     const { x, y } = position;
     const { w, h } = sizes;
